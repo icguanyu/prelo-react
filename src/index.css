@@ -1,53 +1,73 @@
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  /* 品牌主色（藍紫） */
+  --color-primary: #454be1;
+  --color-primary-hover: #3940cc;
+  --color-primary-light: #789afd;
+  --color-primary-dark: #0a2050;
+  --color-primary-rgb: 69, 75, 225;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  /* 強調色（金黃） */
+  --color-accent: #fdc43c;
+  --color-accent-light: #fdf2da;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
+  /* 頁面背景 */
+  --bg-page: #f6f6f6;
+  --bg-page-alt: #d8f0fa;
+  --bg-cool: #d8f0fa;
+  --bg-warm: #fffdf9;
+  --bg-warm-subtle: #faf7f4;
+
+  /* 文字（後台 / 中性） */
+  --text: #252525;
+  --text-muted: #7a7a7a;
+
+  /* 文字（消費者端暖棕尺度） */
+  --text-warm: #1a120b;
+  --text-warm-mid: #5c4b3e;
+  --text-warm-muted: #7a6a5c;
+  --text-warm-faint: #a09080;
+
+  /* 邊框 */
+  --border: #e8e3de;
+  --border-light: #ede9e5;
+  --border-lighter: #f5f2ef;
+  --border-dark: #d8d3ce;
+  --border-darker: #c5bfb9;
+  --border-warm: #e8dfd6;
+
+  /* 語意色 */
+  --el-success: #10b95c;
+  --el-warning: #f59e0b;
+  --el-danger: #c0392b;
+  --el-info: #9e9087;
+
+  --color-success: #2eaa62;
+  --color-success-dark: #1a7a45;
+  --color-success-bg: #e0f7ec;
+
+  --color-price: #d97706;
+
+  /* 排程狀態色 */
+  --color-announced-bg: #f3f4f6;
+  --color-announced-text: #6b7280;
+  --color-announced-accent: #9ca3af;
+
+  --color-venue-bg: var(--bg-cool);
+  --color-venue-text: var(--color-primary-dark);
+  --color-venue-border: #c0cbf8;
+  --color-venue-selected: #eceeff;
+
+  color-scheme: light;
   color: var(--text);
-  background: var(--bg);
+  background: var(--bg-page);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -55,57 +75,7 @@ body {
 }
 
 #root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
-}
-
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
 }
