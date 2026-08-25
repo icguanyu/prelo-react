@@ -173,7 +173,7 @@ const OrderCreate = forwardRef(function OrderCreate({ onCreated }, ref) {
         </div>
       }
     >
-      <Form form={form} labelCol={{ flex: '100px' }} labelAlign="left">
+      <Form form={form} className="order-create-form" labelCol={{ flex: '100px' }} labelAlign="left">
         <div className="form-row">
           <Form.Item label="姓名" name="customer_name" rules={[{ required: true, message: '請輸入顧客姓名' }]}>
             <Input placeholder="請輸入顧客姓名" allowClear />
