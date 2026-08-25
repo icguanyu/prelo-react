@@ -38,7 +38,7 @@ export default function Aside({ isCollapsed, onToggle }) {
   }, []);
 
   return (
-    <aside className={isCollapsed ? 'is-collapsed' : ''} aria-hidden={isCollapsed}>
+    <aside className={`shop-aside${isCollapsed ? ' is-collapsed' : ''}`} aria-hidden={isCollapsed}>
       <div className="aside-logo">
         <img src={logoCircle} alt="" />
       </div>
