@@ -16,9 +16,10 @@ export const antdTheme = {
   components: {
     Button: {
       controlHeight: 36, // 預設32
+      contentFontSizeSM: 12, // 預設14
     },
-    Input:{
+    Input: {
       controlHeight: 36, // 預設32
-    }
+    },
   },
 };

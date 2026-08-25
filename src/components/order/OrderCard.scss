@@ -1,0 +1,411 @@
+$text-primary: #1a120b;
+$text-secondary: #7a6a5c;
+$text-muted: #a09080;
+$border: #e8dfd6;
+$bg-subtle: #faf7f4;
+
+.order-card {
+  position: relative;
+  background: white;
+  border: 1px solid $border;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 380px;
+  height: 100%;
+  box-shadow: 0 1px 3px rgba(28, 25, 23, 0.07);
+  transition: box-shadow 0.2s, transform 0.2s;
+
+  &:hover {
+    box-shadow: 0 4px 14px rgba(28, 25, 23, 0.11);
+    transform: translateY(-2px);
+  }
+
+  .card-top-bar {
+    height: 3px;
+    flex-shrink: 0;
+  }
+
+  &.status-placed .card-top-bar {
+    background: var(--color-accent);
+  }
+  &.status-completed .card-top-bar {
+    background: #2eaa62;
+  }
+  &.status-cancelled .card-top-bar {
+    background: #d1d5db;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px 6px;
+
+    .order-num {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: $text-muted;
+      letter-spacing: 0.3px;
+
+      .num-main {
+        color: $text-primary;
+        font-weight: 700;
+        font-size: 13px;
+      }
+    }
+
+    .status-chip {
+      padding: 3px 10px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      color: white;
+      letter-spacing: 0.3px;
+    }
+  }
+
+  .card-customer {
+    padding: 0px 14px 10px;
+    border-bottom: 1px solid $border;
+
+    .customer-name {
+      line-height: 18px;
+      font-size: 18px;
+      font-weight: 700;
+      color: $text-primary;
+      margin-bottom: 7px;
+    }
+
+    .customer-meta {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 5px;
+
+      .meta-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 13px;
+        color: $text-secondary;
+
+        .anticon {
+          font-size: 13px;
+          color: $text-muted;
+        }
+      }
+    }
+
+    .customer-tags {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+  }
+
+  .card-items {
+    padding: 10px 14px;
+    background: $bg-subtle;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .items-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: $text-muted;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 7px;
+    }
+
+    .items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      max-height: 150px;
+      overflow-y: auto;
+
+      &::-webkit-scrollbar {
+        width: 3px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: $border;
+        border-radius: 2px;
+      }
+
+      .item-row {
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        gap: 8px;
+        align-items: center;
+        font-size: 13px;
+        padding: 6px 10px;
+        background: white;
+        border-radius: 4px;
+        border: 1px solid $border;
+
+        .item-name {
+          color: $text-primary;
+          font-weight: 500;
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+        }
+
+        .item-qty {
+          color: $text-muted;
+          font-size: 12px;
+          text-align: center;
+          min-width: 32px;
+        }
+
+        .item-price {
+          color: $text-primary;
+          font-weight: 600;
+          text-align: right;
+          min-width: 56px;
+        }
+      }
+    }
+  }
+
+  .card-note {
+    padding: 2px 14px 8px;
+    font-size: 12px;
+    color: $text-muted;
+    line-height: 1.5;
+
+    .note-label {
+      font-weight: 600;
+      margin-right: 4px;
+      color: $text-secondary;
+    }
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 14px;
+    border-top: 1px solid $border;
+    background: white;
+
+    .order-total {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      width: 100%;
+      gap: 5px;
+
+      .total-label {
+        font-size: 11px;
+        color: $text-muted;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      .total-amount {
+        font-size: 20px;
+        font-weight: 700;
+        color: $text-primary;
+        line-height: 1;
+      }
+    }
+  }
+
+  .card-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: $bg-subtle;
+
+    .btn-cancel {
+      flex: 1;
+      font-size: 13px;
+    }
+
+    .btn-complete {
+      flex: 2;
+      font-size: 14px;
+      font-weight: 600;
+      height: 36px;
+    }
+  }
+}
+
+.order-row {
+  min-height: initial;
+  flex-direction: row;
+
+  .row-bar {
+    width: 4px;
+    flex-shrink: 0;
+  }
+
+  &.status-placed .row-bar {
+    background: var(--color-accent);
+  }
+  &.status-completed .row-bar {
+    background: #2eaa62;
+  }
+  &.status-cancelled .row-bar {
+    background: #d1d5db;
+  }
+
+  .row-body {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 14px;
+    padding: 10px 14px;
+    min-width: 0;
+  }
+
+  .col-order {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex-shrink: 0;
+    min-width: 68px;
+
+    .order-num {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: $text-muted;
+    }
+    .num-main {
+      color: $text-primary;
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .status-chip {
+      padding: 2px 8px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      color: white;
+      white-space: nowrap;
+      align-self: flex-start;
+    }
+  }
+
+  .col-customer {
+    flex-shrink: 0;
+    min-width: 120px;
+    max-width: 180px;
+
+    .customer-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: $text-primary;
+    }
+    .customer-sub {
+      font-size: 12px;
+      color: $text-secondary;
+      margin-top: 2px;
+      white-space: nowrap;
+    }
+  }
+
+  .col-tags {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+  }
+
+  .col-items {
+    flex: 1;
+    min-width: 0;
+    font-size: 13px;
+    color: $text-secondary;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    .row-note {
+      color: #d97706;
+    }
+  }
+
+  .col-total {
+    font-size: 18px;
+    font-weight: 700;
+    color: $text-primary;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .col-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .order-row {
+    flex-direction: column;
+
+    .row-bar {
+      width: 100%;
+      height: 3px;
+    }
+
+    .row-body {
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 10px 12px;
+    }
+
+    .col-order {
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      min-width: unset;
+      flex: 1;
+      order: 0;
+    }
+
+    .col-customer {
+      max-width: unset;
+      flex: 1;
+      order: -1;
+    }
+
+    .col-tags {
+      width: 100%;
+    }
+
+    .col-items {
+      width: 100%;
+      white-space: normal;
+    }
+
+    .col-total {
+      font-size: 20px;
+    }
+
+    .col-actions {
+      width: 100%;
+      justify-content: flex-end;
+    }
+  }
+
+  .order-card {
+    min-height: 0;
+    height: auto;
+
+    .card-items {
+      flex: 0;
+    }
+  }
+}

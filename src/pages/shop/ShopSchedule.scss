@@ -124,8 +124,9 @@
 
 .strip-nav-btn {
   border: 1px solid #e8dfd6;
-  width: 30px;
-  height: 30px;
+  width: 30px !important;
+  min-width: 30px !important;
+  height: 30px !important;
   flex-shrink: 0;
 }
 

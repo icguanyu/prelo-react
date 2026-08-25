@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import dayjs from 'dayjs';
-import { DatePicker, Select, Input, InputNumber, Switch, Button, Alert, App } from 'antd';
-import { ArrowLeftOutlined, DeleteOutlined } from '@ant-design/icons';
+import { DatePicker, Select, Input, InputNumber, Switch, Button, Alert, App, Steps, Space } from 'antd';
+import { ArrowLeftOutlined, DeleteOutlined, MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import { Schedules } from '../../api/schedules';
 import { scheduleStatusOptions } from '../../utils/constants';
 import { generateTimeOptions } from '../../utils/time';
@@ -237,7 +237,7 @@ export default function ScheduleEditor({ schedule = defaultSchedule, onClose, on
     <div className="schedule-editor">
       <div className="editor-header">
         <div className="editor-title">編輯 {dayjs(form.schedule_date).format('MM-DD')} 的排程</div>
-        <div>
+        <div className="editor-actions">
           <Button className="editor-back" icon={<ArrowLeftOutlined />} shape="circle" onClick={closeEditor} />
           {form.id && (
             <Button danger ghost onClick={deleteSchedule}>
@@ -346,30 +346,29 @@ export default function ScheduleEditor({ schedule = defaultSchedule, onClose, on
           )}
 
           {form.status !== 'DRAFT' && (
-            <div className="schedule-timeline">
-              <div className={`tl-step${timelineActive >= 0 ? ' is-active' : ''}`}>
-                <span className="tl-label">接單</span>
-                {dateTime.orderStartDate && (
-                  <span className="tl-time">
-                    <span className="tl-date">{dateTime.orderStartDate}</span>
-                    <span className="tl-clock">{dateTime.orderStartTime}</span>
-                  </span>
-                )}
-              </div>
-              <div className={`tl-step${timelineActive >= 1 ? ' is-active' : ''}`}>
-                <span className="tl-label">結單</span>
-                {dateTime.orderEndDate && (
-                  <span className="tl-time">
-                    <span className="tl-date">{dateTime.orderEndDate}</span>
-                    <span className="tl-clock">{dateTime.orderEndTime}</span>
-                  </span>
-                )}
-              </div>
-              <div className={`tl-step${timelineActive >= 2 ? ' is-active' : ''}`}>
-                <span className="tl-label">取貨日</span>
-                {form.schedule_date && <span className="tl-time">{form.schedule_date}</span>}
-              </div>
-            </div>
+            <Steps
+              size="small"
+              style={{ marginTop: 14 }}
+              current={form.status === 'CLOSED' ? 3 : timelineActive}
+              items={[
+                {
+                  title: '接單',
+                  description: dateTime.orderStartDate
+                    ? `${dateTime.orderStartDate} ${dateTime.orderStartTime}`
+                    : undefined,
+                },
+                {
+                  title: '結單',
+                  description: dateTime.orderEndDate
+                    ? `${dateTime.orderEndDate} ${dateTime.orderEndTime}`
+                    : undefined,
+                },
+                {
+                  title: '取貨日',
+                  description: form.schedule_date || undefined,
+                },
+              ]}
+            />
           )}
         </div>
 
@@ -471,11 +470,25 @@ export default function ScheduleEditor({ schedule = defaultSchedule, onClose, on
                         </>
                       ) : (
                         <>
-                          <InputNumber
-                            value={item.sales_limit}
-                            min={1}
-                            onChange={(v) => updateItemLimit(item.product_id, v)}
-                          />
+                          <Space.Compact>
+                            <Button
+                              icon={<MinusOutlined />}
+                              onClick={() =>
+                                updateItemLimit(item.product_id, Math.max(1, (item.sales_limit || 1) - 1))
+                              }
+                            />
+                            <InputNumber
+                              value={item.sales_limit}
+                              min={1}
+                              controls={false}
+                              style={{ width: 56 }}
+                              onChange={(v) => updateItemLimit(item.product_id, v)}
+                            />
+                            <Button
+                              icon={<PlusOutlined />}
+                              onClick={() => updateItemLimit(item.product_id, (item.sales_limit || 0) + 1)}
+                            />
+                          </Space.Compact>
                           <Button size="small" onClick={() => updateItemLimit(item.product_id, null)}>
                             不限量
                           </Button>
@@ -483,6 +496,7 @@ export default function ScheduleEditor({ schedule = defaultSchedule, onClose, on
                       )}
                     </div>
                     <Button
+                      danger
                       icon={<DeleteOutlined />}
                       shape="circle"
                       size="small"
