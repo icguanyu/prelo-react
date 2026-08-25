@@ -17,7 +17,6 @@
     border-radius: 50%;
   }
 
-
   .state-center {
     padding: 48px 20px;
   }
@@ -67,7 +66,12 @@
   .hero {
     &__cover {
       height: 180px;
-      background: linear-gradient(160deg, #e0e0e0 0%, #c8c8c8 55%, #b0b0b0 100%);
+      background: linear-gradient(
+        160deg,
+        #e0e0e0 0%,
+        #c8c8c8 55%,
+        #b0b0b0 100%
+      );
       overflow: hidden;
       position: relative;
     }
@@ -173,10 +177,7 @@
     font-size: 14px;
     color: #1a120b;
     line-height: 1.5;
-
-    & + & {
-      margin-top: 10px;
-    }
+    margin-bottom: 8px;
 
     &__label {
       flex-shrink: 0;
@@ -421,7 +422,9 @@
     font-size: 15px;
     letter-spacing: 0.03em;
     cursor: pointer;
-    transition: background 0.15s, box-shadow 0.15s;
+    transition:
+      background 0.15s,
+      box-shadow 0.15s;
     box-shadow: 0 4px 14px rgba(var(--color-primary-rgb), 0.35);
 
     i {
@@ -525,7 +528,6 @@
     }
   }
 
-
   .product-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -549,7 +551,9 @@
     overflow: hidden;
     border: 1px solid #e8ddd5;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-    transition: box-shadow 0.15s, transform 0.15s;
+    transition:
+      box-shadow 0.15s,
+      transform 0.15s;
 
     &:active {
       transform: scale(0.98);
@@ -557,7 +561,7 @@
 
     &__img-wrap {
       width: 100%;
-      aspect-ratio: 1;
+      aspect-ratio: 1.2;
       overflow: hidden;
       background: #f5ede3;
     }
@@ -582,7 +586,7 @@
     }
 
     &__info {
-      padding: 12px 14px 14px;
+      padding: 8px 10px 10px;
       display: flex;
       flex-direction: column;
       gap: 4px;
@@ -606,13 +610,13 @@
     }
 
     &__price {
-      font-size: 15px;
-      font-weight: 800;
+      font-size: 16px;
+      font-weight: 600;
       color: #1a120b;
       margin-top: 6px;
 
       &::before {
-        content: 'NT$\00a0';
+        content: "NT$\00a0";
         font-size: 11px;
         font-weight: 600;
         color: #8a7060;

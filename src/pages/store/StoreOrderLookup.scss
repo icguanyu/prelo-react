@@ -103,20 +103,20 @@
       align-items: center;
       justify-content: center;
       transition: all 0.15s;
+    }
 
-      .remember-me input:checked + & {
-        background: var(--color-primary);
-        border-color: var(--color-primary);
+    input:checked + .remember-me__check {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
 
-        &::after {
-          content: '';
-          width: 10px;
-          height: 6px;
-          border-left: 2px solid #fff;
-          border-bottom: 2px solid #fff;
-          transform: rotate(-45deg) translate(1px, -1px);
-          display: block;
-        }
+      &::after {
+        content: '';
+        width: 10px;
+        height: 6px;
+        border-left: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+        transform: rotate(-45deg) translate(1px, -1px);
+        display: block;
       }
     }
 

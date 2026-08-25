@@ -346,20 +346,20 @@
     justify-content: center;
     flex-shrink: 0;
     transition: all 0.15s;
+  }
 
-    .slice-toggle input:checked + & {
-      background: var(--color-primary);
-      border-color: var(--color-primary);
+  input:checked + .slice-check {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
 
-      &::after {
-        content: '';
-        width: 9px;
-        height: 5px;
-        border-left: 2px solid #fff;
-        border-bottom: 2px solid #fff;
-        transform: rotate(-45deg) translate(1px, -1px);
-        display: block;
-      }
+    &::after {
+      content: '';
+      width: 9px;
+      height: 5px;
+      border-left: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      transform: rotate(-45deg) translate(1px, -1px);
+      display: block;
     }
   }
 
