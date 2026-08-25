@@ -4,7 +4,7 @@ import { PlusOutlined, SettingOutlined, MoreOutlined } from '@ant-design/icons';
 import { ProductCategory, Products } from '../../api/products';
 import EditCategory from '../../components/product/EditCategory';
 import EditProduct from '../../components/product/EditProduct';
-import './ShopProducts.css';
+import './ShopProducts.scss';
 
 const TOUR_KEY = 'products_category_tour_done';
 

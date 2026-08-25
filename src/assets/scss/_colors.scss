@@ -1,0 +1,61 @@
+// ══════════════════════════════════════════════════════════════════════
+//  PRELO 品牌色彩配置
+//  修改這個檔案即可改變全站視覺風格
+// ══════════════════════════════════════════════════════════════════════
+
+// ── 品牌主色（藍紫）────────────────────────────────────────────────
+$color-primary:       #454BE1; // 品牌藍紫
+$color-primary-hover: #3940CC; // hover 加深
+$color-primary-light: #789AFD; // 明亮藍（tint、hover bg 用）
+$color-primary-dark:  #0A2050; // 深海軍藍
+
+// ── 強調色（金黃）────────────────────────────────────────────────
+$color-accent:        #FDC43C;
+$color-accent-light:  #FDF2DA;
+
+// ── 頁面背景 ─────────────────────────────────────────────────────────
+$bg-page:         #f6f6f6; // 後台主背景（中性暖白）
+$bg-page-alt:     #D8F0FA; // 消費者端主背景（淡藍白 / bg-cool）
+$bg-cool:         #D8F0FA; // 淡藍白（巡迴場、cool highlight 用）
+$bg-warm:         #fffdf9; // 消費者端最淺暖白（topbar、頁面底色）
+$bg-warm-subtle:  #faf7f4; // 消費者端次淺（卡片、區塊背景）
+
+// ── 文字（後台 / 中性）────────────────────────────────────────────────
+$text:        #252525;
+$text-muted:  #7A7A7A;
+
+// ── 文字（消費者端暖棕尺度）──────────────────────────────────────────
+$text-warm:         #1a120b; // 近黑暖棕（標題、主要文字）
+$text-warm-mid:     #5c4b3e; // 中等暖棕（次標題）
+$text-warm-muted:   #7a6a5c; // 次要暖棕（說明文字）
+$text-warm-faint:   #a09080; // 淡色暖棕（輔助、placeholder）
+
+// ── 邊框（系統尺度）──────────────────────────────────────────────────
+$border:          #E8E3DE; // 標準（後台）
+$border-light:    #EDE9E5;
+$border-lighter:  #F5F2EF;
+$border-dark:     #D8D3CE;
+$border-darker:   #C5BFB9;
+$border-warm:     #e8dfd6; // 暖棕邊框（消費者端卡片）
+
+// ── 語意色（成功 / 警告 / 危險）──────────────────────────────────────
+$el-success: #10b95c;
+$el-warning: #f59e0b;
+$el-danger:  #C0392B;
+$el-info:    #9e9087;
+
+// 自訂成功色（訂單完成、排程 OPEN 等 UI badge）
+$color-success:      #2eaa62;
+$color-success-dark: #1a7a45;
+$color-success-bg:   #e0f7ec;
+
+// 價格 / 金額強調色（amber）
+$color-price: #d97706;
+
+// ── 排程狀態色 ──────────────────────────────────────────────────────
+$color-announced-bg:     #f3f4f6;
+$color-announced-text:   #6b7280;
+$color-announced-accent: #9ca3af;
+
+$color-venue-border:   #c0cbf8;
+$color-venue-selected: #eceeff;

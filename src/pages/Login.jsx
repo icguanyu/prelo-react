@@ -4,7 +4,7 @@ import { Form, Input, Button, Checkbox, App } from 'antd';
 import { useAuthStore } from '../stores/authStore';
 import FooterBar from '../components/FooterBar';
 import logo from '../assets/logo.png';
-import './Login.css';
+import './Login.scss';
 
 const REMEMBER_KEY = 'prelo-remember-email';
 

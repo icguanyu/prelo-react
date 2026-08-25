@@ -2,7 +2,7 @@ import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
 import { DeleteOutlined } from '@ant-design/icons';
 import imageCompression from 'browser-image-compression';
 import { UploadFile } from '../api/products';
-import './UploadPhotos.css';
+import './UploadPhotos.scss';
 
 const UploadPhotos = forwardRef(function UploadPhotos(
   { value = [], onChange, onUpload, onLoadingChange, disabled = false, max = 3 },

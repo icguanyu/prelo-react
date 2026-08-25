@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './FooterBar.css';
+import './FooterBar.scss';
 
 export default function FooterBar() {
   const year = new Date().getFullYear();

@@ -5,7 +5,7 @@ import iconCalendar from '../assets/calendar.png';
 import iconBaguette from '../assets/baguette.png';
 import iconSetting from '../assets/setting.png';
 import iconStore from '../assets/store.png';
-import './AsideMobile.css';
+import './AsideMobile.scss';
 
 export default function AsideMobile() {
   const shopSlug = useAuthStore((s) => s.user?.shopSlug || '');

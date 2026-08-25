@@ -23,7 +23,7 @@ import {
 import { Users } from '../../api/auth';
 import { useAuthStore } from '../../stores/authStore';
 import lineQr from '../../assets/logo.png';
-import './ShopSettings.css';
+import './ShopSettings.scss';
 
 const paymentOptions = [{ label: '現金', value: 'cash' }];
 const pickupOptions = [{ label: '自取/面交', value: 'pickup' }];

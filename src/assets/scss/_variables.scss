@@ -1,0 +1,68 @@
+// ┌─────────────────────────────────────────────────────────┐
+// │  CSS 自訂屬性（runtime 變數）                              │
+// │  顏色來源：_colors.scss — 請勿在此直接改色碼              │
+// └─────────────────────────────────────────────────────────┘
+@use "sass:color";
+@use "colors" as c;
+
+:root {
+  // ── 品牌主色 ───────────────────────────────────────────
+  --color-primary: #{c.$color-primary};
+  --color-primary-hover: #{c.$color-primary-hover};
+  --color-primary-light: #{c.$color-primary-light};
+  --color-primary-dark: #{c.$color-primary-dark};
+  --color-primary-rgb:
+    #{color.channel(c.$color-primary, "red", $space: rgb)},
+    #{color.channel(c.$color-primary, "green", $space: rgb)},
+    #{color.channel(c.$color-primary, "blue", $space: rgb)};
+
+  // ── 強調色 ─────────────────────────────────────────────
+  --color-accent: #{c.$color-accent};
+  --color-accent-light: #{c.$color-accent-light};
+
+  // ── 頁面背景 ──────────────────────────────────────────
+  --bg-page: #{c.$bg-page};
+  --bg-page-alt: #{c.$bg-page-alt};
+  --bg-cool: #{c.$bg-cool};
+  --bg-warm: #{c.$bg-warm};
+  --bg-warm-subtle: #{c.$bg-warm-subtle};
+
+  // ── 文字 ──────────────────────────────────────────────
+  --text: #{c.$text};
+  --text-muted: #{c.$text-muted};
+  --text-warm: #{c.$text-warm};
+  --text-warm-mid: #{c.$text-warm-mid};
+  --text-warm-muted: #{c.$text-warm-muted};
+  --text-warm-faint: #{c.$text-warm-faint};
+
+  // ── 邊框 ──────────────────────────────────────────────
+  --border: #{c.$border};
+  --border-light: #{c.$border-light};
+  --border-lighter: #{c.$border-lighter};
+  --border-dark: #{c.$border-dark};
+  --border-darker: #{c.$border-darker};
+  --border-warm: #{c.$border-warm};
+
+  // ── 語意色 ────────────────────────────────────────────
+  --el-success: #{c.$el-success};
+  --el-warning: #{c.$el-warning};
+  --el-danger: #{c.$el-danger};
+  --el-info: #{c.$el-info};
+
+  --color-success: #{c.$color-success};
+  --color-success-dark: #{c.$color-success-dark};
+  --color-success-bg: #{c.$color-success-bg};
+
+  --color-price: #{c.$color-price};
+
+  // ── 即將開放 / 草稿（灰色系）──────────────────────────
+  --color-announced-bg: #{c.$color-announced-bg};
+  --color-announced-text: #{c.$color-announced-text};
+  --color-announced-accent: #{c.$color-announced-accent};
+
+  // ── 巡迴場（bg-cool 淡藍系）────────────────────────────
+  --color-venue-bg: #{c.$bg-cool};
+  --color-venue-text: #{c.$color-primary-dark};
+  --color-venue-border: #{c.$color-venue-border};
+  --color-venue-selected: #{c.$color-venue-selected};
+}

@@ -1,0 +1,28 @@
+// 簡化版 scrollbar mixin：只調整顏色
+@mixin scrollbar(
+  $thumb: rgba(255, 255, 255, 0.45),
+  $thumbHover: rgba(255, 255, 255, 0.65),
+  $track: rgba(255, 255, 255, 0.08)
+) {
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: $thumb $track;
+
+  /* WebKit (Chrome/Edge/Safari) */
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $track;
+    border-radius: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $thumb;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: $thumbHover;
+  }
+}

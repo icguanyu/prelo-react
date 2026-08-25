@@ -7,6 +7,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 100dvh;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
 }
 
 /* ── 左側品牌欄 ── */
@@ -20,6 +25,22 @@
   top: 0;
   height: 100dvh;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    position: static;
+    height: auto;
+    padding: 32px 24px;
+
+    .brand__headline {
+      font-size: 26px;
+    }
+    .features {
+      display: none;
+    }
+    .brand__footer {
+      display: none;
+    }
+  }
 }
 
 .brand__inner {
@@ -33,13 +54,13 @@
   width: 120px;
   height: 42px;
   margin-bottom: 6px;
-}
 
-.brand__logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: left center;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
+  }
 }
 
 .brand__eyebrow {
@@ -119,6 +140,11 @@
   justify-content: center;
   padding: 48px 40px;
   min-height: 100dvh;
+
+  @media (max-width: 768px) {
+    min-height: auto;
+    padding: 32px 24px;
+  }
 }
 
 .form-wrap {
@@ -153,21 +179,28 @@
   padding: 0 2px;
 }
 
-.register-form .ant-form-item-label > label {
-  font-size: 13px;
-  font-weight: 600;
-  color: #252525;
-}
+.register-form {
+  .ant-form-item-label > label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #252525;
+  }
 
-.register-form .ant-input-affix-wrapper,
-.register-form .ant-input {
-  border-radius: 8px;
+  .ant-input-affix-wrapper,
+  .ant-input {
+    border-radius: 8px;
+  }
 }
 
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
 }
 
 .submit-btn {
@@ -185,16 +218,16 @@
   color: #a89888;
   text-align: center;
   line-height: 1.6;
-}
 
-.form-terms a {
-  color: #8a7060;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
+  a {
+    color: #8a7060;
+    text-decoration: underline;
+    text-underline-offset: 2px;
 
-.form-terms a:hover {
-  color: var(--color-primary);
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
 }
 
 .form-disclaimer {
@@ -203,38 +236,4 @@
   color: #c0b0a0;
   text-align: center;
   line-height: 1.7;
-}
-
-/* ── RWD ── */
-@media (max-width: 768px) {
-  .register-page {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
-
-  .brand {
-    position: static;
-    height: auto;
-    padding: 32px 24px;
-  }
-
-  .brand .brand__headline {
-    font-size: 26px;
-  }
-  .brand .features {
-    display: none;
-  }
-  .brand .brand__footer {
-    display: none;
-  }
-
-  .form-col {
-    min-height: auto;
-    padding: 32px 24px;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
 }

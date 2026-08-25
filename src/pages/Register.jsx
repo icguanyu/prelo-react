@@ -3,7 +3,7 @@ import { Form, Input, Button, App } from 'antd';
 import { useAuthStore } from '../stores/authStore';
 import FooterBar from '../components/FooterBar';
 import logo from '../assets/logo.png';
-import './Register.css';
+import './Register.scss';
 
 const features = [
   {

@@ -11,7 +11,7 @@ import iconBaguette from '../assets/baguette.png';
 import iconSetting from '../assets/setting.png';
 import iconStore from '../assets/store.png';
 import iconExpandLeft from '../assets/expand_left.svg';
-import './Aside.css';
+import './Aside.scss';
 
 export default function Aside({ isCollapsed, onToggle }) {
   const shopSlug = useAuthStore((s) => s.user?.shopSlug || '');

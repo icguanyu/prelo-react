@@ -2,7 +2,7 @@ import { forwardRef, useImperativeHandle, useState } from 'react';
 import { Modal, Input, Button, App, Empty, Spin } from 'antd';
 import { MinusOutlined } from '@ant-design/icons';
 import { ProductCategory } from '../../api/products';
-import './EditCategory.css';
+import './EditCategory.scss';
 
 const EditCategory = forwardRef(function EditCategory({ onUpdated, onClose }, ref) {
   const { notification, modal } = App.useApp();

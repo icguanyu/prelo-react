@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Outlet, useLocation, Link } from 'react-router-dom';
 import Aside from '../../components/Aside';
 import AsideMobile from '../../components/AsideMobile';
-import './ShopLayout.css';
+import './ShopLayout.scss';
 
 export default function ShopLayout() {
   const year = new Date().getFullYear();
