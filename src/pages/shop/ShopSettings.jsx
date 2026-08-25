@@ -22,6 +22,7 @@ import {
 } from '@ant-design/icons';
 import { Users } from '../../api/auth';
 import { useAuthStore } from '../../stores/authStore';
+import { generateTimeOptions } from '../../utils/time';
 import lineQr from '../../assets/logo.png';
 import './ShopSettings.scss';
 
@@ -73,22 +74,6 @@ function normalizeBusinessHours(hours) {
       Number.isInteger(numericDay) && numericDay >= 0 && numericDay <= 6 ? numericDay : 0;
     return { ...row, day: normalizedDay };
   });
-}
-
-function generateTimeOptions(start, end, stepMinutes) {
-  const options = [];
-  const [startH, startM] = start.split(':').map(Number);
-  const [endH, endM] = end.split(':').map(Number);
-  let minutes = startH * 60 + startM;
-  const endMinutes = endH * 60 + endM;
-  while (minutes <= endMinutes) {
-    const h = String(Math.floor(minutes / 60)).padStart(2, '0');
-    const m = String(minutes % 60).padStart(2, '0');
-    const value = `${h}:${m}`;
-    options.push({ label: value, value });
-    minutes += stepMinutes;
-  }
-  return options;
 }
 
 const pickupTimeOptions = generateTimeOptions('06:00', '22:00', 30);
