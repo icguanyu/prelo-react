@@ -39,7 +39,7 @@ export default function OrderCard({ order, items, viewMode, onStatusChange, onUp
         <Button size="small" onClick={() => onStatusChange?.(order, 'CANCELLED')} className="btn-cancel">
           取消
         </Button>
-        <Button type="primary" size="small" onClick={() => onStatusChange?.(order, 'COMPLETED')} className="btn-complete">
+        <Button type="primary" size="small" onClick={() => onStatusChange?.(order, 'COMPLETED')} className="btn-complete" style={{ backgroundColor: '#2eaa62', borderColor: '#2eaa62' }}>
           ✓ 完成
         </Button>
       </>

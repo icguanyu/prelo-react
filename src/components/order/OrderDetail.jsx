@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Modal, Form, Input, Select, Switch, Button, App } from 'antd';
+import { Modal, Form, Input, Select, Switch, Button, App, Grid } from 'antd';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import { Orders } from '../../api/orders';
 import SelectPaymentMethod from '../select/SelectPaymentMethod';
@@ -26,6 +26,7 @@ function buildForm(order) {
 
 export default function OrderDetail({ open, order, availableItems, onClose, onDeleted, onUpdated }) {
   const { message, notification, modal } = App.useApp();
+  const screens = Grid.useBreakpoint();
   const [form] = Form.useForm();
   const [items, setItems] = useState(() => buildForm(order).items);
   const [pickupMethod, setPickupMethod] = useState(() => buildForm(order).pickup_method);
@@ -149,7 +150,7 @@ export default function OrderDetail({ open, order, availableItems, onClose, onDe
     <Modal
       centered
       title="訂購明細"
-      width="70%"
+      width={screens.sm ? '70%' : '90%'}
       open={open}
       onCancel={onClose}
       className="order-detail-dialog"
@@ -264,39 +265,41 @@ export default function OrderDetail({ open, order, availableItems, onClose, onDe
                   </div>
                 </div>
 
-                {getItemQuantity(product.product_id) > 0 ? (
-                  <>
-                    {product.is_sliceable && (
-                      <div className="slice-control">
-                        <span>切</span>
-                        <Switch
-                          size="small"
-                          checked={items.find((i) => i.product_id === product.product_id)?.is_sliced || false}
-                          onChange={(checked) => updateItemSliced(product.product_id, checked)}
+                <div className="item-actions">
+                  {getItemQuantity(product.product_id) > 0 ? (
+                    <>
+                      {product.is_sliceable && (
+                        <div className="slice-control">
+                          <span>切</span>
+                          <Switch
+                            size="small"
+                            checked={items.find((i) => i.product_id === product.product_id)?.is_sliced || false}
+                            onChange={(checked) => updateItemSliced(product.product_id, checked)}
+                          />
+                        </div>
+                      )}
+                      <div className="quantity-control">
+                        <Button
+                          icon={<MinusOutlined />}
+                          shape="circle"
+                          onClick={() => updateProductQuantity(product.product_id, -1)}
+                        />
+                        <span className="quantity-display">{getItemQuantity(product.product_id)}</span>
+                        <Button
+                          icon={<PlusOutlined />}
+                          shape="circle"
+                          type="primary"
+                          ghost
+                          onClick={() => updateProductQuantity(product.product_id, 1)}
                         />
                       </div>
-                    )}
-                    <div className="quantity-control">
-                      <Button
-                        icon={<MinusOutlined />}
-                        shape="circle"
-                        onClick={() => updateProductQuantity(product.product_id, -1)}
-                      />
-                      <span className="quantity-display">{getItemQuantity(product.product_id)}</span>
-                      <Button
-                        icon={<PlusOutlined />}
-                        shape="circle"
-                        type="primary"
-                        ghost
-                        onClick={() => updateProductQuantity(product.product_id, 1)}
-                      />
-                    </div>
-                  </>
-                ) : (
-                  <Button type="primary" size="small" onClick={() => toggleProduct(product.product_id)}>
-                    新增
-                  </Button>
-                )}
+                    </>
+                  ) : (
+                    <Button type="primary" size="small" onClick={() => toggleProduct(product.product_id)}>
+                      新增
+                    </Button>
+                  )}
+                </div>
               </div>
             ))}
           </div>

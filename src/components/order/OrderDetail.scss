@@ -141,6 +141,14 @@
         }
       }
 
+      .item-actions {
+        margin-left: auto;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
       .quantity-control {
         display: flex;
         align-items: center;

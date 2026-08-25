@@ -1,6 +1,6 @@
 import { forwardRef, useImperativeHandle, useMemo, useState } from 'react';
 import dayjs from 'dayjs';
-import { Modal, Form, Input, Select, Switch, Button, App } from 'antd';
+import { Modal, Form, Input, Select, Switch, Button, App ,Grid} from 'antd';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import { Orders } from '../../api/orders';
 import SelectPaymentMethod from '../select/SelectPaymentMethod';
@@ -21,6 +21,7 @@ const defaultFormValues = {
 
 const OrderCreate = forwardRef(function OrderCreate({ onCreated }, ref) {
   const { message, notification } = App.useApp();
+  const screens = Grid.useBreakpoint();
   const [form] = Form.useForm();
   const [visible, setVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -157,7 +158,7 @@ const OrderCreate = forwardRef(function OrderCreate({ onCreated }, ref) {
   return (
     <Modal
       title="建立訂單"
-      width="70%"
+      width={screens.sm ? '70%' : '90%'}
       open={visible}
       onCancel={close}
       mask={{ closable: false }}
